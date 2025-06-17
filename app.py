@@ -13,7 +13,7 @@ def load_model():
 model = load_model()
 
 # Webcam or image upload
-option = st.radio("Choose input source:", ("Webcam", "Image Upload"))
+option = st.radio("Choose input source:", ("Webcam", "Image/Video Upload"))
 
 if option == "Webcam":
     run = st.checkbox('Start Webcam')
