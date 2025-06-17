@@ -25,7 +25,7 @@ if option == "Webcam":
         while run:
             ret, frame = cap.read()
             if not ret:
-                st.warning("Failed to grab frame")
+                st.warning("Failed to grab frame. Try File Upload instead.")
                 break
             results = model(frame)[0]
             for box in results.boxes:
@@ -37,7 +37,7 @@ if option == "Webcam":
         if cap:
             cap.release()
 else:
-    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+    uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png", "mp4"])
     if uploaded_file is not None:
         file_bytes = np.asarray(bytearray(uploaded_file.read()), dtype=np.uint8)
         img = cv2.imdecode(file_bytes, 1)
